@@ -24,6 +24,27 @@ class Board extends React.Component {
 
   handleClick(i) {
     console.log(i)
+    let squares = this.state.squares.slice() // slice不传参数数组的深度拷贝
+    // 一般来说，有两种改变数据的方式。第一种方式是直接修改变量的值，第二种方式是使用新的一份数据替换旧数据
+    //     直接修改数据
+
+    // var player = {score: 1, name: 'Jeff'};
+    // player.score = 2;
+    // player 修改后的值为 {score: 2, name: 'Jeff'}
+
+    // 新数据替换旧数据
+
+    // var player = {score: 1, name: 'Jeff'};
+
+    // var newPlayer = Object.assign({}, player, {score: 2});
+    // player 的值没有改变, 但是 newPlayer 的值是 {score: 2, name: 'Jeff'}
+
+    // 使用对象展开语法，就可以写成：
+    // var newPlayer = {...player, score: 2};
+    squares[i] = 'X'
+    this.setState({
+      squares:squares
+    })
   }
 
   render() {
