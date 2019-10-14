@@ -13,6 +13,11 @@ class Game extends React.Component {
           <div>{/* status */}</div>
           <ol>{/* TODO */}</ol>
         </div>
+        {/* <div className="game-btn">
+          <div onClick={() => {
+            this.clearData()
+          }}>重新开始</div>
+        </div> */}
       </div>
     );
   }

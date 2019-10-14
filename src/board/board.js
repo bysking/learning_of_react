@@ -5,7 +5,8 @@ class Board extends React.Component {
   constructor (p) { // 构造函数
     super(p) // 接着必须先调用超类构造函数
     this.state = { // 设置组件状态
-      squares: Array(9).fill('-')
+      squares: Array(9).fill('-'),
+      xIsNext: true //下一步落子是否为X
     }
   }
 
@@ -53,14 +54,21 @@ class Board extends React.Component {
 
     // 使用对象展开语法，就可以写成：
     // var newPlayer = {...player, score: 2};
-    squares[i] = 'X'
+    // squares[i] = 'X'
+    if(squares[i] === '-') {
+      this.state.xIsNext ? squares[i]='X' : squares[i]='O'
+      this.setState({
+        xIsNext: !this.state.xIsNext
+      })
+    }
     this.setState({
       squares:squares
     })
   }
 
   render() {
-    const status = 'Next player: X';
+    // const status = 'Next player: X';
+    const status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
     return (
       <div>
         <div className="status">{status}</div>
