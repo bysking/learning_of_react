@@ -1,5 +1,5 @@
 import React from 'react'
-import Square from '../square/square'
+// import Square from '../square/square'
 
 class Board extends React.Component {
   constructor (p) { // 构造函数
@@ -9,7 +9,19 @@ class Board extends React.Component {
     }
   }
 
+
   renderSquare(i) {
+
+    function Square(props) {
+      return(
+        <button className="square" onClick={() => {
+          props.onClick()
+        }}>
+          {props.value}
+        </button>
+      )
+    }
+
     return (
       <Square
         value={this.state.squares[i]} // 传给子组件的value
