@@ -10,7 +10,20 @@ class Board extends React.Component {
   }
 
   renderSquare(i) {
-    return <Square value={this.state.squares[i]} />;
+    return (
+      <Square
+        value={this.state.squares[i]} // 传给子组件的value
+        onClick={ // 传给子组件阿函数
+          () => {
+            this.handleClick(i)
+          }
+        }
+      />
+    );
+  }
+
+  handleClick(i) {
+    console.log(i)
   }
 
   render() {

@@ -11,9 +11,10 @@ class Square extends React.Component {
     return (
       <button className="square" onClick={() => {
         // alert('click')
-        this.setState({ value: 'X' }) // 每次在组件中调用 setState 时，React 都会自动更新其子组件
+        // this.setState({ value: 'X' }) // 每次在组件中调用 setState 时，React 都会自动更新其子组件
+        this.props.onClick()
       }}>
-        {this.state.value || '-'}
+        {this.props.value}
       </button>
     );
   }
