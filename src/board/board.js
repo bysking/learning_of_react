@@ -2,8 +2,15 @@ import React from 'react'
 import Square from '../square/square'
 
 class Board extends React.Component {
+  constructor (p) { // 构造函数
+    super(p) // 接着必须先调用超类构造函数
+    this.state = { // 设置组件状态
+      squares: Array(9).fill('-')
+    }
+  }
+
   renderSquare(i) {
-    return <Square value={i} />;
+    return <Square value={this.state.squares[i]} />;
   }
 
   render() {
